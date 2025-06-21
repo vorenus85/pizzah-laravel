@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import fullReload from 'vite-plugin-full-reload';
-import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
     plugins: [
@@ -13,6 +12,5 @@ export default defineConfig({
             'resources/views/**/*.blade.php',
             'routes/**/*.php',
         ]),
-        tailwindcss(),
     ],
 });
