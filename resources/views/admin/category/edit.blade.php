@@ -36,7 +36,8 @@
                 <div class="row mb-3">
                     <div class="col-sm-6 col-xs 12">
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" @if($category->status == "on") checked @endif  role="switch" id="category-status" name="status">
+                            <input type="hidden" name="status" value="off">
+                            <input class="form-check-input" type="checkbox" @if($category->status == "on") checked @endif  role="switch" id="category-status" name="status" value="on">
                             <label class="form-check-label" for="category-status">Aktív</label>
                         </div>
                     </div>
