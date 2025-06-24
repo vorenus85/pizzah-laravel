@@ -15,16 +15,22 @@ class ProductCategoriesSeeder extends Seeder
     {
         Category::create([
             'name' => 'Nápolyi pizza',
+            'slug' => 'napolyi-pizza',
+            'status' => 'on',
             'description' => 'Lorem ipsum dolor',
         ]);
 
         Category::create([
             'name' => 'Chicagoi pizza',
+            'slug' => 'chicagoi-pizza',
+            'status' => 'on',
             'description' => 'Lorem ipsum dolor',
         ]);
 
         Category::create([
             'name' => 'New yorki pizza',
+            'slug' => 'new-yorki-pizza',
+            'status' => 'on',
             'description' => 'Lorem ipsum dolor',
         ]);
     }
