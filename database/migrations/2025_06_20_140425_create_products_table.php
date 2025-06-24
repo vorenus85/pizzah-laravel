@@ -14,14 +14,15 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name');
+            $table->enum('status', ['on', 'off'])->default('off');
+            $table->string('slug', 100)->unique();
+            $table->string('name', 100)->unique();
             $table->text('description');
             $table->float('price');
-            $table->string('size');
-            $table->softDeletes();
-            $table->unsignedBigInteger('category_id'); // idegen kulcs
+            $table->float('discount_price')->nullable();
+            $table->unsignedBigInteger('category_id');
 
-            // foreight key
+            // foreign key
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }

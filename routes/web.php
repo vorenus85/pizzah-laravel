@@ -19,11 +19,12 @@ Route::get('/', function () {
 Route::/*middleware(['auth'])->*/prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-
     Route::get('/products', [ProductController::class, 'index'])->name('products');
     Route::get('/products/new', [ProductController::class, 'create'])->name('product.create');
     Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('product.edit');
-    Route::post('/products/{id}/destroy', [ProductController::class, 'destroy'])->name('product.destroy');
+    Route::post('/products/store', [ProductController::class, 'store'])->name('product.store');
+    Route::put('/products/{product}', [ProductController::class, 'update'])->name('product.update');
+    Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
 
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
     Route::get('/categories/new', [CategoryController::class, 'create'])->name('category.create');

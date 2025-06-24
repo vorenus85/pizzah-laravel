@@ -24,7 +24,7 @@
             <tr>
                 <th scope="row">{{$index+1}}.</th>
                 <td>[image]</td>
-                <td>{{ $category->name }}</td>
+                <td><a href="{{route('admin.category.edit', $category->id)}}">{{ $category->name }}</a></td>
                 <td>
                     <div class="d-flex">
                         <!-- TODO ajax update -->

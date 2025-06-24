@@ -4,11 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Database\QueryException;
-use Illuminate\Validation\ValidationException;
 
 class CategoryController extends Controller
 {
@@ -36,6 +33,7 @@ class CategoryController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|unique:categories,name',
+            'status' => 'string',
             'slug' => 'required|string|unique:categories,slug',
         ]);
 
@@ -48,7 +46,7 @@ class CategoryController extends Controller
             ]);
 
         } catch (\Exception $exception) {
-            Log::error($exception);
+            Log::error($exception->getMessage());
             return back()->withInput()->with([
                 'message' => 'Hoppá, valami probléma történt, a szaki hamarosan javítja.',
                 'message_type' => 'danger'
@@ -79,18 +77,18 @@ class CategoryController extends Controller
 
     public function update(Request $request, Category $category)
     {
-        Log::info('befutott az ágba' . $category->id, );
 
         $validated = $request->validate([
             'name' => 'required|string|unique:categories,name,' . $category->id,
             'slug' => 'required|string|unique:categories,slug,' . $category->id,
+            'status' => 'string',
         ]);
 
         try {
             $category->update($validated);
             return redirect()->route('admin.category.edit', $category)->with(['message'=>'Kategória sikeresen frissítve.', "message_type" => "success"]);
         } catch(\Exception $exception) {
-            Log::error($exception);
+            Log::error($exception->getMessage());
             return redirect()->route('admin.category.edit', $category)->with(['message'=>'Hoppá, valami probléma történt, a szaki hamarosan javítja.', "message_type" => "danger"]);
         }
     }
@@ -104,7 +102,7 @@ class CategoryController extends Controller
             $category->delete();
             return redirect()->route('admin.categories')->with(['message'=>'Sikeresen törölted a kategóriát.', "message_type" => "success"]);
         }catch (\Exception $exception){
-            Log::info($exception);
+            Log::error($exception->getMessage());
             return redirect()->route('admin.categories')->with(['message'=>'Hoppá, valami probléma történt, a szaki hamarosan javítja.', "message_type" => "danger"]);
         }
     }

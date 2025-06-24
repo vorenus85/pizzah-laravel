@@ -14,26 +14,29 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         Product::create([
-            'name' => 'Magyaros',
-            'description' => 'Kolbász, bacon, hagyma',
+            'name' => 'Bolognese',
+            'slug' => 'bolognese',
+            'status' => 'on',
+            'description' => '(bolognai ragu, mozzarella)',
             'price' => 2290,
-            'size' => '32 cm',
             'category_id' => 1
         ]);
 
         Product::create([
-            'name' => 'Magyaros 2',
-            'description' => 'Kolbász, bacon, hagyma',
-            'price' => 2290,
-            'size' => '32 cm',
+            'name' => 'Detroit Classic',
+            'slug' => 'detroit-classic',
+            'status' => 'on',
+            'description' => 'Detroiti vastag pizzatészta, paradicsomszósz, szalámi, mozzarella',
+            'price' => 2590,
             'category_id' => 2
         ]);
 
         Product::create([
-            'name' => 'Magyaros 3',
-            'description' => 'Kolbász, bacon, hagyma',
-            'price' => 2290,
-            'size' => '32 cm',
+            'name' => 'Dolce Vita',
+            'slug' => 'dolce-vita',
+            'status' => 'on',
+            'description' => '(paradicsomszósz, sonka, gomba, kukorica, mozzarella)',
+            'price' => 3750,
             'category_id' => 3
         ]);
     }
