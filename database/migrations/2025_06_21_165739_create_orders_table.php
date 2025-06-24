@@ -14,11 +14,14 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->softDeletes();
-            $table->string('total');
-            $table->string('payment_status');
-            $table->string('delivery_status');
-            $table->string('payment_type');
+            $table->float('total'); // ordered items + delivery cost + purchase cost
+            $table->float('sub_total'); // only ordered items
+            $table->enum('payment_status',['pending', 'paid', 'failed', 'expired', 'refunded', 'partially_refunded', 'cancelled'])->default('pending');
+            $table->enum('delivery_status', ['pending', 'shipped', 'processing', 'delivered', 'cancelled'])->default('pending');
+            $table->enum('payment_type', ['cod'])->default('cod');
+            $table->enum('delivery_type', ['home_delivery'])->default('home_delivery');
+            $table->float('delivery_cost')->nullable();
+            $table->float('payment_cost')->nullable();
             $table->string('customer_name');
             $table->string('customer_email');
             $table->string('customer_phone');
