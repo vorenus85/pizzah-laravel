@@ -35,16 +35,12 @@ Route::/*middleware(['auth'])->*/prefix('admin')->name('admin.')->group(function
 
 
     Route::get('/orders', [OrderController::class, 'index'])->name('orders');
-    /*
+    Route::get('/orders/new', [OrderController::class, 'create'])->name('order.create');
     Route::get('/orders/{id}/edit', [OrderController::class, 'edit'])->name('order.edit');
-    Route::post('/orders/{id}/destroy', [OrderController::class, 'destroy'])->name('order.destroy');
-*/
+    Route::post('/orders/store', [OrderController::class, 'store'])->name('order.store');
+    Route::put('/orders/{order}', [OrderController::class, 'update'])->name('order.update');
+    Route::delete('/orders/{order}', [OrderController::class, 'destroy'])->name('order.destroy');
 
-    /*
-    Route::resource('products', ProductController::class)->except(['show']);
-    Route::resource('categories', CategoryController::class)->except(['show']);
-    Route::resource('orders', OrderController::class)->except(['show']);
-    */
 });
 
 // require __DIR__.'/auth.php';
