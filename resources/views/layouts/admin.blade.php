@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin felület</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+          rel="stylesheet">
+    @vite('resources/scss/admin/admin.scss')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -12,10 +16,9 @@
 <div class="d-flex" id="admin-app">
     <div class="bg-dark text-white p-3 vh-100" style="width: 250px;">
         @section('sidebar')
-            @include('admin.partials.sidebar')
+            @include('admin.sections.sidebar')
         @show
     </div>
-    <!-- Tartalom -->
     <div class="p-4 flex-grow-1">
         <div class="container">
             @yield('title')
@@ -28,7 +31,6 @@
                 @endif
             @show
             @yield('content')
-
         </div>
     </div>
 </div>

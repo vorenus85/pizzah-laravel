@@ -1,0 +1,10 @@
+// Először a változóid (felülírják az alapértelmezetteket)
+@import "variables";
+
+// A Bootstrap alap SCSS fájlok (a változók után)
+@import "/node_modules/bootstrap/scss/bootstrap";
+
+// TODO szétbontani majd modulokra
+td, th {
+    vertical-align: middle;
+}
