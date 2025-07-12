@@ -1,7 +1,7 @@
 
 @extends('layouts.admin')
 @section('title')
-    <h1 class="h4 mb-3">Új rendelés rögzítése</h1>
+    <h1 class="h4 mb-3">@lang('admin.pages.orders.new_title')</h1>
 @endsection
 
 @section('content')
@@ -11,50 +11,50 @@
 
             <div class="row g-3">
                 <div class="col-lg-6">
-                    <h6 class="border-bottom pb-2 mb-3">Vásárló adatai</h6>
+                    <h6 class="border-bottom pb-2 mb-3">@lang('admin.pages.orders.customer_data')</h6>
 
                     <div class="mb-2">
-                        <label class="form-label">Név</label>
-                        <input  type="text" name="customer_name" required
+                        <label class="form-label" for="name">@lang('admin.form.name')</label>
+                        <input  type="text" placeholder="@lang('admin.form.name')" name="customer_name" id="name" required
                                 class="form-control @error('customer_name') is-invalid @enderror"
                                 value="{{ old('customer_name') }}">
                     </div>
 
                     <div class="row">
                         <div class="col-6 mb-2">
-                            <label class="form-label">E-mail</label>
-                            <input  type="email" name="customer_email" required
+                            <label class="form-label" for="email">@lang('admin.form.email')</label>
+                            <input  type="email" placeholder="@lang('admin.form.email')" name="customer_email" id="email" required
                                     class="form-control @error('customer_email') is-invalid @enderror"
                                     value="{{ old('customer_email') }}">
                         </div>
                         <div class="col-6 mb-2">
-                            <label class="form-label">Telefon</label>
-                            <input  type="text" name="customer_phone" required
+                            <label class="form-label" for="phone">@lang('admin.form.phone')</label>
+                            <input  type="text" placeholder="@lang('admin.form.phone')" name="customer_phone" id="phone" required
                                     class="form-control @error('customer_phone') is-invalid @enderror"
                                     value="{{ old('customer_phone') }}">
                         </div>
                     </div>
 
                     <div class="mb-2">
-                        <label class="form-label">Szállítási cím</label>
-                        <input  type="text" name="customer_address" required
+                        <label class="form-label" for="delivery_address">@lang('admin.pages.orders.delivery_address')</label>
+                        <input  type="text" name="customer_address" id="delivery_address" required
                                 class="form-control @error('customer_address') is-invalid @enderror"
                                 value="{{ old('customer_address') }}">
                     </div>
 
                     <div class="mb-4">
-                        <label class="form-label">Megjegyzés</label>
-                        <textarea name="customer_note" rows="2"
+                        <label class="form-label" for="description">@lang('admin.form.message')</label>
+                        <textarea name="customer_note" rows="2" id="description" placeholder="@lang('admin.form.message')"
                                   class="form-control @error('customer_note') is-invalid @enderror">{{ old('customer_note') }}</textarea>
                     </div>
 
-                    <h6 class="border-bottom pb-2 mb-3 mt-lg-4">Állapotok</h6>
+                    <h6 class="border-bottom pb-2 mb-3 mt-lg-4">@lang('admin.pages.orders.statuses')</h6>
 
                     <div class="row">
                         <div class="col-sm-6 mb-2">
-                            <label class="form-label">Fizetési státusz</label>
-                            <select name="payment_status" class="form-select" required>
-                                @foreach (['pending','paid','failed','expired','refunded','partially_refunded','cancelled'] as $ps)
+                            <label class="form-label" for="purchase_status">@lang('admin.pages.orders.purchase_status')</label>
+                            <select name="payment_status" class="form-select" id="purchase_status" required>
+                                @foreach (['cancelled','paid','failed','expired','refunded','partially_refunded','pending'] as $ps)
                                     <option value="{{ $ps }}" @selected(old('payment_status',$ps)==$ps)>
                                         {{ Str::title(str_replace('_',' ',$ps)) }}
                                     </option>
@@ -63,9 +63,9 @@
                         </div>
 
                         <div class="col-sm-6 mb-2">
-                            <label class="form-label">Szállítási státusz</label>
-                            <select name="delivery_status" class="form-select" required>
-                                @foreach (['pending','processing','shipped','delivered','cancelled'] as $ds)
+                            <label class="form-label" for="delivery_status">@lang('admin.pages.orders.delivery_status')</label>
+                            <select name="delivery_status" class="form-select" id="delivery_status" required>
+                                @foreach (['cancelled','processing','shipped','delivered','pending'] as $ds)
                                     <option value="{{ $ds }}" @selected(old('delivery_status',$ds)==$ds)>
                                         {{ Str::title($ds) }}
                                     </option>
@@ -76,8 +76,8 @@
 
                     <div class="row">
                         <div class="col-sm-6 mb-2">
-                            <label class="form-label">Fizetési mód</label>
-                            <select name="payment_type" class="form-select" required>
+                            <label class="form-label" for="purchase_type">@lang('admin.pages.orders.purchase_type')</label>
+                            <select name="payment_type" class="form-select" id="purchase_type" required>
                                 @foreach (['cod'] as $pt)
                                     <option value="{{ $pt }}" @selected(old('payment_type',$pt)==$pt)>
                                         {{ strtoupper($pt) }}
@@ -87,8 +87,8 @@
                         </div>
 
                         <div class="col-sm-6 mb-2">
-                            <label class="form-label">Szállítás típusa</label>
-                            <select name="delivery_type" class="form-select" required>
+                            <label class="form-label" for="delivery_type">@lang('admin.pages.orders.delivery_type')</label>
+                            <select name="delivery_type" class="form-select" id="delivery_type" required>
                                 @foreach (['home_delivery'] as $dt)
                                     <option value="{{ $dt }}" @selected(old('delivery_type',$dt)==$dt)>
                                         Home delivery
@@ -101,7 +101,7 @@
 
                 {{-- JOBB OLDAL –  pénzügyi adatok --}}
                 <div class="col-lg-6">
-                    <h6 class="border-bottom pb-2 mb-3">Termékek hozzáadása</h6>
+                    <h6 class="border-bottom pb-2 mb-3">@lang('admin.pages.orders.add_products')</h6>
 
                     <div class="row">
                         <div class="col-sm-8 mb-2">
@@ -114,7 +114,7 @@
                             </select>
 
                         </div>
-                        <div class="col-sm-4 mb-2 d-flex justify-end align-items-end"><button type="button" id="add_to_order" class="btn btn-success">Hozzáad</button></div>
+                        <div class="col-sm-4 mb-2 d-flex justify-end align-items-end"><button type="button" id="add_to_order" class="btn btn-success"><i class="fa fa-plus me-2"></i>Hozzáad</button></div>
                     </div>
 
                     <div class="row">
@@ -194,19 +194,19 @@
             </td>
             <td class="text-center">
                 <div class="input-group input-group-sm justify-content-center">
-                    <button class="btn btn-outline-secondary btn-minus" type="button">−</button>
+                    <button class="btn btn-secondary btn-minus" type="button">−</button>
                     <input  type="text" readonly
                             class="form-control text-center quantity-field"
                             name="products[${prod.id}][quantity]"
                             value="1" style="max-width:55px;">
-                    <button class="btn btn-outline-secondary btn-plus"  type="button">+</button>
+                    <button class="btn btn-secondary btn-plus"  type="button">+</button>
                 </div>
             </td>
             <td>
                 <span class="js-row-total">${prod.price}</span> <span>Ft</span>
             </td>
             <td class="text-end">
-                <button class="btn btn-sm btn-danger btn-remove" type="button">&times;</button>
+                <button class="btn btn-sm btn-danger btn-remove" type="button" title="Törlés"><i class="fa fa-trash"></i></button>
             </td>
         </tr>
     `;
@@ -221,7 +221,6 @@
                     total += value;
                 });
 
-                // két tizedesre kerekítve írjuk ki (vagy hagyd fix nélkül, ha egész Ft-tal dolgozol)
                 document.getElementById('order-grand-total').textContent = total + parseInt(deliveryCost, 10) + parseInt(paymentCost, 10);
             }
 
