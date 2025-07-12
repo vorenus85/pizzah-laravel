@@ -5,5 +5,5 @@
 @endsection
 
 @section('title')
-    <h1>Irányítópult</h1>
+    <h1>@lang('admin.pages.dashboard.title')</h1>
 @endsection
