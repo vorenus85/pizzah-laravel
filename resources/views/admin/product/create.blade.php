@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    <h1>Új termék</h1>
+    <h1>@lang('admin.pages.products.new_title')</h1>
 @endsection
 
 @section('content')
@@ -12,8 +12,8 @@
                 <div class="row mb-3">
                     <div class="col-sm-6 col-xs 12">
                         <div class="">
-                            <label for="product-name" class="form-label">Termék Neve</label>
-                            <input name="name" id="product-name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Név" value="{{ old('name') }}" required>
+                            <label for="name" class="form-label">@lang('admin.form.name')</label>
+                            <input name="name" id="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="@lang('admin.form.name')" value="{{ old('name') }}" required>
                             @error('name')
                             <div class="invalid-feedback d-block">{{ $message }}</div>
                             @enderror
@@ -24,8 +24,8 @@
                 <div class="row mb-3">
                     <div class="col-sm-6 col-xs 12">
                         <div class="">
-                            <label for="product-slug" class="form-label">Termék url-e</label>
-                            <input type="text" class="form-control @error('slug') is-invalid @enderror" id="product-slug" name="slug" placeholder="Url" value="{{ old('slug') }}" required>
+                            <label for="slug" class="form-label">@lang('admin.form.url')</label>
+                            <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" placeholder="@lang('admin.form.url')" value="{{ old('slug') }}" required>
                         </div>
                         @error('slug')
                         <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -36,8 +36,8 @@
                 <div class="row mb-3">
                     <div class="col-sm-6 col-xs 12">
                         <div class="">
-                            <label for="description" class="form-label">Leírás</label>
-                            <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror" rows="3" placeholder="Leírás" required>{{ old('description') }}</textarea>
+                            <label for="description" class="form-label">@lang('admin.form.description')</label>
+                            <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror" rows="3" placeholder="@lang('admin.form.description')" required>{{ old('description') }}</textarea>
                         </div>
                         @error('description')
                         <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -48,8 +48,8 @@
                 <div class="row mb-3">
                     <div class="col-sm-6 col-xs 12">
                         <div class="">
-                            <label for="price" class="form-label">Ár (Ft)</label>
-                            <input name="price" id="price" type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" placeholder="Ár" value="{{ old('price') }}" required>
+                            <label for="price" class="form-label">@lang('admin.form.price')</label>
+                            <input name="price" id="price" type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" placeholder="@lang('admin.form.price')" value="{{ old('price') }}" required>
                         </div>
                         @error('price')
                         <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -60,8 +60,8 @@
                 <div class="row mb-3">
                     <div class="col-sm-6 col-xs 12">
                         <div class="">
-                            <label for="discount_price" class="form-label">Kedvezményes ár (Ft)</label>
-                            <input name="discount_price" id="discount_price" type="number" step="0.01" class="form-control" placeholder="Kedvezményes ár" value="{{ old('discount_price') }}">
+                            <label for="discount_price" class="form-label">@lang('admin.form.special_price')</label>
+                            <input name="discount_price" id="discount_price" type="number" step="0.01" class="form-control" placeholder="@lang('admin.form.special_price')" value="{{ old('discount_price') }}">
                         </div>
                     </div>
                 </div>
@@ -71,8 +71,8 @@
                 <div class="row mb-3">
                     <div class="col-sm-6 col-xs 12">
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" checked role="switch" id="product-status" name="status">
-                            <label class="form-check-label" for="product-status">Aktív</label>
+                            <input class="form-check-input" type="checkbox" checked role="switch" id="status" name="status">
+                            <label class="form-check-label" for="status">@lang('admin.form.active')</label>
                         </div>
                     </div>
                 </div>
@@ -80,9 +80,9 @@
                 <div class="row mb-3">
                     <div class="col-sm-6 col-xs 12">
                         <div class="">
-                            <label for="category_id" class="form-label">Kategória</label>
+                            <label for="category_id" class="form-label">@lang('admin.form.category')</label>
                             <select name="category_id" id="category_id" class="form-select" required>
-                                <option value="">Válassz kategóriát</option>
+                                <option value="">@lang('admin.form.choose_category')</option>
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id }}" @selected(old('category_id') == $category->id)>{{ $category->name }}</option>
                                 @endforeach
@@ -91,7 +91,7 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Mentés</button>
+                <button type="submit" class="btn btn-primary">@lang('admin.btn.save')</button>
             </form>
         </div>
     </div>

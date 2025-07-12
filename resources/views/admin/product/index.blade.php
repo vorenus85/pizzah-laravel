@@ -2,26 +2,26 @@
 
 @section('title')
     <div class="container">
-        <h1 class="mb-5">Termékek</h1>
+        <h1 class="mb-5">@lang('admin.pages.products.title')</h1>
     </div>
 @endsection
 
 @section('content')
     <div class="container">
         <div class="d-flex justify-content-end mb-5">
-            <a href="{{ route('admin.product.create') }}" class="btn btn-info">Új termék</a>
+            <a href="{{ route('admin.product.create') }}" class="btn btn-info">@lang('admin.pages.products.btn.new')</a>
         </div>
 
         <table class="table">
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Kép</th>
-                <th scope="col">Név</th>
-                <th scope="col">Kategória</th>
-                <th scope="col">Ár</th>
-                <th scope="col">Státusz</th>
-                <th scope="col">Műveletek</th>
+                <th scope="col">@lang('admin.table.image')</th>
+                <th scope="col">@lang('admin.table.name')</th>
+                <th scope="col">@lang('admin.table.category')</th>
+                <th scope="col">@lang('admin.table.price')</th>
+                <th scope="col">@lang('admin.table.status')</th>
+                <th scope="col">@lang('admin.table.actions')</th>
             </tr>
             </thead>
             <tbody>
@@ -44,11 +44,11 @@
                     </td>
                     <td>
                         <div class="d-flex">
-                            <a href="{{ route('admin.product.edit', $product) }}" class="btn btn-primary m-2" title="Szerkesztés"><i class="fa fa-edit"></i></a>
+                            <a href="{{ route('admin.product.edit', $product) }}" class="btn btn-primary m-2" title="@lang('admin.btn.edit')"><i class="fa fa-edit"></i></a>
                             <form method="POST" action="{{ route('admin.product.destroy', $product->id) }}">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger m-2" title="Törlés"><i class="fa fa-trash"></i></button>
+                                <button type="submit" class="btn btn-danger m-2" title="@lang('admin.btn.delete')"><i class="fa fa-trash"></i></button>
                             </form>
                         </div>
                     </td>
