@@ -9,13 +9,13 @@
         </a>
     </li>
     <li class="nav-item mb-2">
-        <a href="{{ route('admin.products') }}" class="nav-link text-white">
-            <i class="fa-solid fa-box me-2"></i> @lang('admin.side_menu.products')
+        <a href="{{ route('admin.categories') }}" class="nav-link text-white">
+            <i class="fa-solid fa-tags me-2"></i> @lang('admin.side_menu.categories')
         </a>
     </li>
     <li class="nav-item mb-2">
-        <a href="{{ route('admin.categories') }}" class="nav-link text-white">
-            <i class="fa-solid fa-tags me-2"></i> @lang('admin.side_menu.categories')
+        <a href="{{ route('admin.products') }}" class="nav-link text-white">
+            <i class="fa-solid fa-box me-2"></i> @lang('admin.side_menu.products')
         </a>
     </li>
     <li class="nav-item">

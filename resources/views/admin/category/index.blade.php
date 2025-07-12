@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    <h1 class="mb-5">Kategóriák</h1>
+    <h1 class="mb-5">@lang('admin.pages.categories.title')</h1>
 @endsection
 
 @section('content')
@@ -13,10 +13,10 @@
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Kép</th>
-            <th scope="col">Név</th>
-            <th scope="col">Státusz</th>
-            <th scope="col">Műveletek</th>
+            <th scope="col">@lang('admin.table.image')</th>
+            <th scope="col">@lang('admin.table.name')</th>
+            <th scope="col">@lang('admin.table.status')</th>
+            <th scope="col">@lang('admin.table.actions')</th>
         </tr>
         </thead>
         <tbody>
@@ -36,10 +36,10 @@
                 <td>
                     <div class="d-flex">
                         <a href="{{ route('admin.category.edit', $category) }}" class="btn btn-primary m-2" title="Szerkesztés"><i class="fa fa-edit"></i></a>
-                        <form action="{{ route('admin.category.destroy', $category->id) }}" method="POST" onsubmit="return confirm('Biztosan törlöd?')">
+                        <form action="{{ route('admin.category.destroy', $category->id) }}" method="POST" onsubmit="return confirm('@lang('admin.table.delete_confirm')')">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger m-2" title="Törlés"><i class="fa fa-trash"></i></button>
+                            <button type="submit" class="btn btn-danger m-2" title="@lang('admin.btn.delete')"><i class="fa fa-trash"></i></button>
                         </form>
                     </div>
                 </td>

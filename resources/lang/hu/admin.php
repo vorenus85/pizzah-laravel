@@ -58,7 +58,12 @@ return [
 
         ],
         'categories' => [
-            'title' => ''
+            'title' => 'Kategóriák',
+            'new_title' => 'Új Kategória',
+            'edit_title' => "Kategória szerkesztése",
+            'btn' => [
+                'new' => 'Új Kategória',
+            ],
         ]
     ],
     'table' => [
@@ -73,6 +78,7 @@ return [
         'total' => 'Összeg',
         'payment_status' => 'Fizetési státusz',
         'delivery_status' => 'Szállítási státusz',
+        'delete_confirm' => 'Biztosan törlöd?'
     ],
     'form' => [
         'name' => 'Név',
