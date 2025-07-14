@@ -1,4 +1,4 @@
-import './bootstrap';
+import './bootstrap.js';
 
 function slugify(text) {
     return text

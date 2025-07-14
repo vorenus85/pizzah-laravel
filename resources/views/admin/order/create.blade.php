@@ -1,5 +1,5 @@
 
-@extends('layouts.admin')
+@extends('admin.layouts.master')
 @section('title')
     <h1 class="h4 mb-3">@lang('admin.pages.orders.new_title')</h1>
 @endsection

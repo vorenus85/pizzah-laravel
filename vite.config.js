@@ -5,7 +5,7 @@ import fullReload from 'vite-plugin-full-reload';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js'],
+            input: ['resources/scss/web/app.scss', 'resources/js/app.js'],
             refresh: true,
         }),
         fullReload([
@@ -13,4 +13,8 @@ export default defineConfig({
             'routes/**/*.php',
         ]),
     ],
+    build: {
+        minify: mode === 'production',
+        sourcemap: mode !== 'production',
+    },
 });

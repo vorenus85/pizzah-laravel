@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.master')
 
 @section('title')
     <h1 class="mb-5">@lang('admin.pages.categories.title')</h1>

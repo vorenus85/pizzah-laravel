@@ -34,9 +34,7 @@
         </div>
     </div>
 </div>
-@vite('resources/js/app.js')
-
-
+@vite('resources/js/admin/app.js')
 @yield('script')
 </body>
 </html>
