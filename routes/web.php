@@ -5,15 +5,14 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 
+use App\Http\Controllers\Web\HomeController;
+use App\Http\Controllers\Web\CartController;
 use Illuminate\Support\Facades\Route;
 
-// Route::resource('pizzas', ProductController::class);
-// Route::resource('categories', CategoryController::class);
 
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
 
 // Admin rész: csak bejelentkezett felhasználónak
 Route::/*middleware(['auth'])->*/prefix('admin')->name('admin.')->group(function () {
