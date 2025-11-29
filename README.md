@@ -1,4 +1,4 @@
-# 🍕 Project Name – Pizzah WebShop
+# 🍕 PPizzah WebShop - Laravel Project
 
 This project is a web application built with **Laravel 12**. The purpose of this documentation is to help developers set up and run the project in a local development environment.
 
@@ -138,4 +138,6 @@ composer test
 - Laravel version: 12.x
 - Vite for asset bundling (HMR support)
 - SCSS and JavaScript compiling
+- Uses **Bootstrap 5** for UI styling
+- Uses **jQuery** for DOM manipulation or legacy script compatibility
 - Queue workers included
