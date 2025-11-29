@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import fullReload from 'vite-plugin-full-reload';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
     plugins: [
         laravel({
             input: ['resources/scss/web/app.scss', 'resources/js/app.js'],
@@ -17,4 +17,4 @@ export default defineConfig({
         minify: mode === 'production',
         sourcemap: mode !== 'production',
     },
-});
+}));
